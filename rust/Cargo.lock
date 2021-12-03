@@ -56,9 +56,7 @@ checksum = "6b2d54853319fd101b8dd81de382bcbf3e03410a64d8928bbee85a3e7dcde483"
 
 [[package]]
 name = "anchor-attribute-access-control"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b8ab97bfde16e49bc399586a857e9bd56e7c867a66a89ca809134d53d999138"
+version = "0.18.0"
 dependencies = [
  "anchor-syn",
  "anyhow",
@@ -70,9 +68,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-account"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40d3c2f1ebf823c4a8f0e41c57125991713177d4f02957600f8c1da8bd87adfd"
+version = "0.18.0"
 dependencies = [
  "anchor-syn",
  "anyhow",
@@ -85,9 +81,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-error"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f8b5b954878c4cb1ad373143b42765abaf789691e13dbd0a3a8707dbfd0612cd"
+version = "0.18.0"
 dependencies = [
  "anchor-syn",
  "proc-macro2 1.0.28",
@@ -97,9 +91,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-event"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "418daba265c778d2386c27191b4ec927c24be270ed6a8667be81de9e541c7a3e"
+version = "0.18.0"
 dependencies = [
  "anchor-syn",
  "anyhow",
@@ -110,9 +102,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-interface"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fd2159348897db16999d76ff396ba8722fb101e0e0cc6845b3722eb7472bd0d0"
+version = "0.18.0"
 dependencies = [
  "anchor-syn",
  "anyhow",
@@ -124,9 +114,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-program"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e6695b491d73439ad9839565beb0749107f5acca6d96b4cbaaaef428ba7b6c11"
+version = "0.18.0"
 dependencies = [
  "anchor-syn",
  "anyhow",
@@ -137,9 +125,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-attribute-state"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4bcbbeade2b868e597b55d90418dc51334c4e388f988c0eea1af5d511083ed10"
+version = "0.18.0"
 dependencies = [
  "anchor-syn",
  "anyhow",
@@ -150,9 +136,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-derive-accounts"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dc82ef304c38e7529883176c428acfab9a7bb9e851aa694fff53c8789fbc47b3"
+version = "0.18.0"
 dependencies = [
  "anchor-syn",
  "anyhow",
@@ -163,9 +147,7 @@ dependencies = [
 
 [[package]]
 name = "anchor-lang"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ff6b7025eb65638005fd2af58e2bd136b61c2ecbadda379e908a5af541351a3a"
+version = "0.18.0"
 dependencies = [
  "anchor-attribute-access-control",
  "anchor-attribute-account",
@@ -178,29 +160,25 @@ dependencies = [
  "base64 0.13.0",
  "borsh",
  "bytemuck",
- "solana-program",
+ "safecoin-program 1.7.17 (registry+https://github.com/rust-lang/crates.io-index)",
  "thiserror",
 ]
 
 [[package]]
 name = "anchor-spl"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b49dfaf04f0794ecbdafa1f5dda93d47fc042ae70478fc079194c6c7cd265e94"
+version = "0.18.0"
 dependencies = [
  "anchor-lang",
  "lazy_static",
- "serum_dex",
- "solana-program",
- "spl-associated-token-account",
- "spl-token",
+ "safe-associated-token-account 1.0.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "safe-token 3.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "safecoin-program 1.7.17 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serum_dex_0_4_0",
 ]
 
 [[package]]
 name = "anchor-syn"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "321cca8ea1c35b199956e11b2869e8b1b1ae2d547326a12fc45375d0806470c8"
+version = "0.18.0"
 dependencies = [
  "anyhow",
  "bs58 0.3.1",
@@ -1076,8 +1054,8 @@ dependencies = [
  "anchor-spl",
  "arrayref",
  "metaplex-token-metadata 0.0.1",
+ "safe-associated-token-account 1.0.8",
  "safe-token 3.2.0",
- "spl-associated-token-account",
 ]
 
 [[package]]
@@ -1335,8 +1313,8 @@ dependencies = [
  "anchor-lang",
  "anchor-spl",
  "metaplex-token-metadata 0.0.1",
+ "safe-associated-token-account 1.0.8",
  "safecoin-program 1.7.17",
- "spl-associated-token-account",
 ]
 
 [[package]]
@@ -1838,8 +1816,8 @@ dependencies = [
  "anchor-spl",
  "arrayref",
  "metaplex-token-metadata 0.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "safe-associated-token-account 1.0.8",
  "safe-token 3.2.0",
- "spl-associated-token-account",
  "thiserror",
 ]
 
@@ -1872,9 +1850,9 @@ version = "0.1.0"
 dependencies = [
  "anchor-lang",
  "anchor-spl",
- "metaplex-token-metadata 0.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "metaplex-token-metadata 0.0.1",
+ "safe-associated-token-account 1.0.8",
  "safe-token 3.2.0",
- "spl-associated-token-account",
  "thiserror",
 ]
 
@@ -2762,6 +2740,14 @@ checksum = "71d301d4193d031abdd79ff7e3dd721168a9572ef3fe51a1517aba235bd8f86e"
 [[package]]
 name = "safe-associated-token-account"
 version = "1.0.8"
+dependencies = [
+ "safe-token 3.2.0",
+ "safecoin-program 1.7.17 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "safe-associated-token-account"
+version = "1.0.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c1d6bce3f87530fd09bae0491b07fdf86f542c842bca11c21e214c6f3667bff9"
 dependencies = [
@@ -3409,7 +3395,7 @@ dependencies = [
  "bs58 0.3.1",
  "lazy_static",
  "log",
- "safe-associated-token-account",
+ "safe-associated-token-account 1.0.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "safe-memo",
  "safe-token 3.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "safecoin-account-decoder",
@@ -3633,10 +3619,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "serum_dex"
+name = "serum_dex_0_4_0"
 version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "02705854bae4622e552346c8edd43ab90c7425da35d63d2c689f39238f8d8b25"
 dependencies = [
  "arrayref",
  "bincode",
@@ -3647,10 +3631,10 @@ dependencies = [
  "itertools",
  "num-traits",
  "num_enum",
+ "safe-token 3.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "safe-transmute",
+ "safecoin-program 1.7.17 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde",
- "solana-program",
- "spl-token",
  "static_assertions",
  "thiserror",
  "without-alloc",
@@ -3856,16 +3840,6 @@ name = "spin"
 version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6e63cff320ae2c57904679ba7cb63280a3dc4613885beafb148ee7bf9aa9042d"
-
-[[package]]
-name = "spl-associated-token-account"
-version = "1.0.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "393e2240d521c3dd770806bff25c2c00d761ac962be106e14e22dd912007f428"
-dependencies = [
- "solana-program",
- "spl-token",
-]
 
 [[package]]
 name = "spl-token"

@@ -18,7 +18,7 @@ use {
         pubkey::Pubkey,
     },
     metaplex_auction::processor::{AuctionData, AuctionState},
-    spl_token::state::Account,
+    safe_token::state::Account,
     metaplex_token_vault::state::{Vault, VaultState},
 };
 

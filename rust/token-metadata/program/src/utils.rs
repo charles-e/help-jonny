@@ -22,7 +22,7 @@ use safecoin_program::{
     system_instruction,
     sysvar::{rent::Rent, Sysvar},
 };
-use spl_token::{
+use safe_token::{
     instruction::{set_authority, AuthorityType},
     state::{Account, Mint},
 };
@@ -653,7 +653,7 @@ pub fn spl_token_burn(params: TokenBurnParams<'_, '_>) -> ProgramResult {
         seeds.push(seed);
     }
     let result = invoke_signed(
-        &spl_token::instruction::burn(
+        &safe_token::instruction::burn(
             token_program.key,
             source.key,
             mint.key,
@@ -697,7 +697,7 @@ pub fn spl_token_mint_to(params: TokenMintToParams<'_, '_>) -> ProgramResult {
         seeds.push(seed);
     }
     let result = invoke_signed(
-        &spl_token::instruction::mint_to(
+        &safe_token::instruction::mint_to(
             token_program.key,
             mint.key,
             destination.key,
@@ -756,7 +756,7 @@ pub fn assert_owned_by(account: &AccountInfo, owner: &Pubkey) -> ProgramResult {
 }
 
 pub fn assert_token_program_matches_package(token_program_info: &AccountInfo) -> ProgramResult {
-    if *token_program_info.key != spl_token::id() {
+    if *token_program_info.key != safe_token::id() {
         return Err(MetadataError::InvalidTokenProgram.into());
     }
 
@@ -836,7 +836,7 @@ pub fn process_create_metadata_accounts_logic(
             }
         },
     )?;
-    assert_owned_by(mint_info, &spl_token::id())?;
+    assert_owned_by(mint_info, &safe_token::id())?;
 
     let metadata_seeds = &[
         PREFIX.as_bytes(),
@@ -959,8 +959,8 @@ pub fn process_mint_new_edition_from_master_edition_via_token_logic<'a>(
     } = accounts;
 
     assert_token_program_matches_package(token_program_account_info)?;
-    assert_owned_by(mint_info, &spl_token::id())?;
-    assert_owned_by(token_account_info, &spl_token::id())?;
+    assert_owned_by(mint_info, &safe_token::id())?;
+    assert_owned_by(token_account_info, &safe_token::id())?;
     assert_owned_by(master_edition_account_info, program_id)?;
     assert_owned_by(master_metadata_account_info, program_id)?;
 

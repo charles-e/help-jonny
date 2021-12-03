@@ -19,7 +19,7 @@ use {
         entrypoint::ProgramResult,
         pubkey::Pubkey,
     },
-    spl_token::state::Account,
+    safe_token::state::Account,
 };
 pub fn make_safety_deposit_validation<'a>(
     program_id: &Pubkey,

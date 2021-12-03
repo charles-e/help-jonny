@@ -27,7 +27,7 @@ use {
         system_instruction::create_account,
         transaction::Transaction,
     },
-    spl_token::{
+    safe_token::{
         instruction::{initialize_account, initialize_mint, mint_to},
         state::{Account, Mint},
     },

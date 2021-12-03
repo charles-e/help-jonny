@@ -23,7 +23,7 @@ use {
         rent::Rent,
         sysvar::Sysvar,
     },
-    spl_token::state::{Account, Mint},
+    safe_token::state::{Account, Mint},
 };
 
 pub fn process_instruction(

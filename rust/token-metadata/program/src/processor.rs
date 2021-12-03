@@ -32,7 +32,7 @@ use safecoin_program::{
     program_error::ProgramError,
     pubkey::Pubkey,
 };
-use spl_token::state::{Account, Mint};
+use safe_token::state::{Account, Mint};
 
 pub fn process_instruction<'a>(
     program_id: &'a Pubkey,
@@ -232,7 +232,7 @@ pub fn process_update_primary_sale_happened_via_token(
     let mut metadata = Metadata::from_account_info(metadata_account_info)?;
 
     assert_owned_by(metadata_account_info, program_id)?;
-    assert_owned_by(token_account_info, &spl_token::id())?;
+    assert_owned_by(token_account_info, &safe_token::id())?;
 
     if !owner_info.is_signer {
         return Err(ProgramError::MissingRequiredSignature);
@@ -322,7 +322,7 @@ pub fn process_create_master_edition(
     assert_token_program_matches_package(token_program_info)?;
     assert_mint_authority_matches_mint(&mint.mint_authority, mint_authority_info)?;
     assert_owned_by(metadata_account_info, program_id)?;
-    assert_owned_by(mint_info, &spl_token::id())?;
+    assert_owned_by(mint_info, &safe_token::id())?;
 
     if metadata.mint != *mint_info.key {
         return Err(MetadataError::MintMismatch.into());
@@ -432,8 +432,8 @@ pub fn process_convert_master_edition_v1_to_v2(
     let printing_mint_info = next_account_info(account_info_iter)?;
 
     assert_owned_by(master_edition_info, program_id)?;
-    assert_owned_by(one_time_printing_auth_mint_info, &spl_token::id())?;
-    assert_owned_by(printing_mint_info, &spl_token::id())?;
+    assert_owned_by(one_time_printing_auth_mint_info, &safe_token::id())?;
+    assert_owned_by(printing_mint_info, &safe_token::id())?;
     let master_edition: MasterEditionV1 = MasterEditionV1::from_account_info(master_edition_info)?;
     let printing_mint: Mint = assert_initialized(printing_mint_info)?;
     let auth_mint: Mint = assert_initialized(one_time_printing_auth_mint_info)?;

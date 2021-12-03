@@ -18,7 +18,7 @@ use {
         rent::Rent,
         sysvar::Sysvar,
     },
-    spl_token::state::Account,
+    safe_token::state::Account,
     metaplex_token_metadata::state::{MasterEditionV1, Metadata},
     metaplex_token_vault::state::{SafetyDepositBox, Vault},
 };

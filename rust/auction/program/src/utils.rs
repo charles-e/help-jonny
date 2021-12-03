@@ -28,7 +28,7 @@ pub fn assert_initialized<T: Pack + IsInitialized>(
 }
 
 pub fn assert_token_program_matches_package(token_program_info: &AccountInfo) -> ProgramResult {
-    if *token_program_info.key != spl_token::id() {
+    if *token_program_info.key != safe_token::id() {
         return Err(AuctionError::InvalidTokenProgram.into());
     }
 
@@ -151,7 +151,7 @@ pub fn spl_token_transfer(params: TokenTransferParams<'_, '_>) -> ProgramResult 
     } = params;
 
     let result = invoke_signed(
-        &spl_token::instruction::transfer(
+        &safe_token::instruction::transfer(
             token_program.key,
             source.key,
             destination.key,
@@ -196,7 +196,7 @@ pub fn spl_token_create_account(params: TokenCreateAccount<'_>) -> ProgramResult
         token_program,
         rent,
     } = params;
-    let size = spl_token::state::Account::LEN;
+    let size = safe_token::state::Account::LEN;
     let rent = &Rent::from_account_info(&rent)?;
     let required_lamports = rent
         .minimum_balance(size)
@@ -209,14 +209,14 @@ pub fn spl_token_create_account(params: TokenCreateAccount<'_>) -> ProgramResult
             account.key,
             required_lamports,
             size as u64,
-            &spl_token::id(),
+            &safe_token::id(),
         ),
         &[payer, account.clone(), token_program],
     )?;
 
     invoke_signed(
-        &spl_token::instruction::initialize_account(
-            &spl_token::id(),
+        &safe_token::instruction::initialize_account(
+            &safe_token::id(),
             account.key,
             mint.key,
             authority.key,

@@ -24,7 +24,7 @@ use {
         entrypoint::ProgramResult,
         pubkey::Pubkey,
     },
-    spl_token::state::{Account, Mint},
+    safe_token::state::{Account, Mint},
 };
 pub fn make_safety_deposit_config<'a>(
     program_id: &Pubkey,

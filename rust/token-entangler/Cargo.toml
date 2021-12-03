@@ -14,16 +14,20 @@ cpi = [ "no-entrypoint" ]
 default = [ ]
 
 [dependencies]
-anchor-lang = "0.17.0"
-anchor-spl = "0.17.0"
 thiserror = "1.0"
 
-  [dependencies.spl-associated-token-account]
-  version = "1.0.3"
+  [dependencies.anchor-lang]
+  path = "../../../bh-anchor/lang"
+  
+  [dependencies.anchor-spl]
+  path = "../../../bh-anchor/spl"
+  
+  [dependencies.safe-associated-token-account]
+  path = "../../../safecoin-program-library/associated-token-account/program"
   features = [ "no-entrypoint" ]
 
   [dependencies.metaplex-token-metadata]
-  version = "0.0.1"
+  path = "../token-metadata/program"
   features = [ "no-entrypoint" ]
 
   [dependencies.safe-token]

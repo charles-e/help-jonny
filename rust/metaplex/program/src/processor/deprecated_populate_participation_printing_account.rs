@@ -19,7 +19,7 @@ use {
         program::invoke_signed,
         pubkey::Pubkey,
     },
-    spl_token::{instruction::close_account, state::Account},
+    safe_token::{instruction::close_account, state::Account},
 };
 
 fn mint_printing_tokens<'a: 'b, 'b>(

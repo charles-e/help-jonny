@@ -43,7 +43,7 @@ use {
         system_instruction::create_account,
         sysvar::{clock::Clock, Sysvar},
     },
-    spl_token::state::Account,
+    safe_token::state::Account,
     std::mem,
 };
 
@@ -98,7 +98,7 @@ fn parse_accounts<'a, 'b: 'a>(
 
     assert_owned_by(accounts.auction, program_id)?;
     assert_owned_by(accounts.auction_extended, program_id)?;
-    assert_owned_by(accounts.bidder_token, &spl_token::id())?;
+    assert_owned_by(accounts.bidder_token, &safe_token::id())?;
 
     if !accounts.bidder_pot.data_is_empty() {
         assert_owned_by(accounts.bidder_pot, program_id)?;
@@ -107,14 +107,14 @@ fn parse_accounts<'a, 'b: 'a>(
         assert_owned_by(accounts.bidder_meta, program_id)?;
     }
 
-    assert_owned_by(accounts.mint, &spl_token::id())?;
-    assert_owned_by(accounts.bidder_pot_token, &spl_token::id())?;
+    assert_owned_by(accounts.mint, &safe_token::id())?;
+    assert_owned_by(accounts.bidder_pot_token, &safe_token::id())?;
     assert_signer(accounts.bidder)?;
     assert_signer(accounts.payer)?;
     assert_signer(accounts.transfer_authority)?;
     assert_token_program_matches_package(accounts.token_program)?;
 
-    if *accounts.token_program.key != spl_token::id() {
+    if *accounts.token_program.key != safe_token::id() {
         return Err(AuctionError::InvalidTokenProgram.into());
     }
 

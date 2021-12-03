@@ -11,7 +11,7 @@ use {
     anchor_spl::token::Token,
     metaplex_token_metadata::state::Metadata,
     spl_associated_token_account::get_associated_token_address,
-    spl_token::{instruction::initialize_account2, state::Account},
+    safe_token::{instruction::initialize_account2, state::Account},
     std::{convert::TryInto, slice::Iter},
 };
 pub fn assert_is_ata(
@@ -19,7 +19,7 @@ pub fn assert_is_ata(
     wallet: &Pubkey,
     mint: &Pubkey,
 ) -> Result<Account, ProgramError> {
-    assert_owned_by(ata, &spl_token::id())?;
+    assert_owned_by(ata, &safe_token::id())?;
     let ata_account: Account = assert_initialized(ata)?;
     assert_keys_equal(ata_account.owner, *wallet)?;
     assert_keys_equal(get_associated_token_address(wallet, mint), *ata.key)?;
@@ -152,7 +152,7 @@ pub fn create_program_token_account_if_not_present<'a>(
             &rent.to_account_info(),
             &system_program,
             &fee_payer,
-            spl_token::state::Account::LEN,
+            safe_token::state::Account::LEN,
             fee_seeds,
             signer_seeds,
         )?;
@@ -229,7 +229,7 @@ pub fn pay_creator_fees<'a>(
                     )?;
                     if creator_fee > 0 {
                         invoke(
-                            &spl_token::instruction::transfer(
+                            &safe_token::instruction::transfer(
                                 token_program.key,
                                 &payment_account.key,
                                 current_creator_token_account_info.key,

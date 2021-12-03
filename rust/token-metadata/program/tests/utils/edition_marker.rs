@@ -136,7 +136,7 @@ impl EditionMarker {
                     vault.keypair.pubkey(),
                     context.payer.pubkey(),
                     self.metadata_pubkey,
-                    spl_token::id(),
+                    safe_token::id(),
                     metaplex_token_vault::id(),
                     self.edition,
                 ),

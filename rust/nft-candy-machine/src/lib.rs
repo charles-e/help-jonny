@@ -14,7 +14,7 @@ use {
             MAX_CREATOR_LEN, MAX_CREATOR_LIMIT, MAX_NAME_LENGTH, MAX_SYMBOL_LENGTH, MAX_URI_LENGTH,
         },
     },
-    spl_token::state::Mint,
+    safe_token::state::Mint,
     std::cell::Ref,
 };
 anchor_lang::declare_id!("cndyAnrLdpjq1Ssp1z8xxDsB8dxe7u4HL5Nxi2K5WXZ");
@@ -56,9 +56,9 @@ pub mod nft_candy_machine {
         if let Some(mint) = candy_machine.token_mint {
             let token_account_info = &ctx.remaining_accounts[0];
             let transfer_authority_info = &ctx.remaining_accounts[1];
-            let token_account: spl_token::state::Account = assert_initialized(&token_account_info)?;
+            let token_account: safe_token::state::Account = assert_initialized(&token_account_info)?;
 
-            assert_owned_by(&token_account_info, &spl_token::id())?;
+            assert_owned_by(&token_account_info, &safe_token::id())?;
 
             if token_account.mint != mint {
                 return Err(ErrorCode::MintMismatch.into());
@@ -385,11 +385,11 @@ pub mod nft_candy_machine {
         if ctx.remaining_accounts.len() > 0 {
             let token_mint_info = &ctx.remaining_accounts[0];
             let _token_mint: Mint = assert_initialized(&token_mint_info)?;
-            let token_account: spl_token::state::Account =
+            let token_account: safe_token::state::Account =
                 assert_initialized(&ctx.accounts.wallet)?;
 
-            assert_owned_by(&token_mint_info, &spl_token::id())?;
-            assert_owned_by(&ctx.accounts.wallet, &spl_token::id())?;
+            assert_owned_by(&token_mint_info, &safe_token::id())?;
+            assert_owned_by(&ctx.accounts.wallet, &safe_token::id())?;
 
             if token_account.mint != *token_mint_info.key {
                 return Err(ErrorCode::MintMismatch.into());
@@ -446,7 +446,7 @@ pub mod nft_candy_machine {
 pub struct InitializeCandyMachine<'info> {
     #[account(init, seeds=[PREFIX.as_bytes(), config.key().as_ref(), data.uuid.as_bytes()], payer=payer, bump=bump, space=8+32+32+33+32+64+64+64+200)]
     candy_machine: ProgramAccount<'info, CandyMachine>,
-    #[account(constraint= wallet.owner == &spl_token::id() || (wallet.data_is_empty() && wallet.lamports() > 0) )]
+    #[account(constraint= wallet.owner == &safe_token::id() || (wallet.data_is_empty() && wallet.lamports() > 0) )]
     wallet: AccountInfo<'info>,
     #[account(has_one=authority)]
     config: ProgramAccount<'info, Config>,

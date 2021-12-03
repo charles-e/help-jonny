@@ -62,7 +62,7 @@ pub fn spl_token_transfer(params: TokenTransferParams<'_, '_>) -> ProgramResult 
     let val = &[authority_signer_seeds];
 
     let result = invoke_signed(
-        &spl_token::instruction::transfer(
+        &safe_token::instruction::transfer(
             token_program.key,
             source.key,
             destination.key,
@@ -437,7 +437,7 @@ pub fn spl_token_mint_to<'a: 'b, 'b>(
     token_program: AccountInfo<'a>,
 ) -> ProgramResult {
     let result = invoke_signed(
-        &spl_token::instruction::mint_to(
+        &safe_token::instruction::mint_to(
             token_program.key,
             mint.key,
             destination.key,
@@ -481,7 +481,7 @@ pub fn spl_token_burn(params: TokenBurnParams<'_, '_>) -> ProgramResult {
         seeds.push(seed);
     }
     let result = invoke_signed(
-        &spl_token::instruction::burn(
+        &safe_token::instruction::burn(
             token_program.key,
             source.key,
             mint.key,

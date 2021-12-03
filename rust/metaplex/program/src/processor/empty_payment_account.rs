@@ -27,7 +27,7 @@ use {
         rent::Rent,
         sysvar::Sysvar,
     },
-    spl_token::state::Account,
+    safe_token::state::Account,
 };
 
 fn assert_destination_ownership_validity(

@@ -18,7 +18,7 @@ use {
         pubkey::Pubkey,
     },
     metaplex_auction::processor::{AuctionData, AuctionDataExtended, BidderMetadata},
-    spl_token::state::Account,
+    safe_token::state::Account,
     metaplex_token_metadata::utils::get_supply_off_master_edition,
 };
 

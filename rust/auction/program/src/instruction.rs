@@ -273,7 +273,7 @@ pub fn place_bid_instruction(
             AccountMeta::new_readonly(sysvar::clock::id(), false),
             AccountMeta::new_readonly(sysvar::rent::id(), false),
             AccountMeta::new_readonly(safecoin_program::system_program::id(), false),
-            AccountMeta::new_readonly(spl_token::id(), false),
+            AccountMeta::new_readonly(safe_token::id(), false),
         ],
         data: AuctionInstruction::PlaceBid(args).try_to_vec().unwrap(),
     }
@@ -337,7 +337,7 @@ pub fn cancel_bid_instruction(
             AccountMeta::new_readonly(sysvar::clock::id(), false),
             AccountMeta::new_readonly(sysvar::rent::id(), false),
             AccountMeta::new_readonly(safecoin_program::system_program::id(), false),
-            AccountMeta::new_readonly(spl_token::id(), false),
+            AccountMeta::new_readonly(safe_token::id(), false),
         ],
         data: AuctionInstruction::CancelBid(args).try_to_vec().unwrap(),
     }
@@ -403,7 +403,7 @@ pub fn claim_bid_instruction(
         AccountMeta::new_readonly(bidder_pubkey, false),
         AccountMeta::new_readonly(token_mint_pubkey, false),
         AccountMeta::new_readonly(sysvar::clock::id(), false),
-        AccountMeta::new_readonly(spl_token::id(), false),        
+        AccountMeta::new_readonly(safe_token::id(), false),        
     ];
 
     if let Some(auction_extended) = auction_extended_pubkey {

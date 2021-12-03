@@ -115,7 +115,7 @@ pub mod token_entangler {
         )?;
 
         invoke(
-            &spl_token::instruction::transfer(
+            &safe_token::instruction::transfer(
                 token_program.key,
                 &token_b.key(),
                 &token_b_escrow.key(),
@@ -217,7 +217,7 @@ pub mod token_entangler {
         }
 
         invoke(
-            &spl_token::instruction::transfer(
+            &safe_token::instruction::transfer(
                 token_program.key,
                 &token.key(),
                 &swap_from_escrow.key(),
@@ -234,7 +234,7 @@ pub mod token_entangler {
         )?;
 
         invoke_signed(
-            &spl_token::instruction::transfer(
+            &safe_token::instruction::transfer(
                 token_program.key,
                 &swap_to_escrow.key(),
                 &replacement_token.key(),
@@ -251,7 +251,7 @@ pub mod token_entangler {
             &[&signer_seeds],
         )?;
 
-        let is_native = treasury_mint.key() == spl_token::native_mint::id();
+        let is_native = treasury_mint.key() == safe_token::native_mint::id();
 
         if !entangled_pair.paid || entangled_pair.pays_every_time {
             pay_creator_fees(

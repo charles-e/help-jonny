@@ -22,7 +22,7 @@ use {
         create_master_edition, create_metadata_accounts,
         mint_new_edition_from_master_edition_via_token, update_metadata_accounts,
     },
-    spl_token::{
+    safe_token::{
         instruction::{initialize_account2, mint_to},
         state::Account,
     },
@@ -57,7 +57,7 @@ pub mod fair_launch {
         fair_launch.token_mint_bump = token_mint_bump;
 
         fair_launch.token_mint = ctx.accounts.token_mint.key();
-        assert_owned_by(&ctx.accounts.token_mint.to_account_info(), &spl_token::id())?; //paranoia
+        assert_owned_by(&ctx.accounts.token_mint.to_account_info(), &safe_token::id())?; //paranoia
 
         let token_mint_key = ctx.accounts.token_mint.key();
         let treasury_seeds = &[
@@ -78,9 +78,9 @@ pub mod fair_launch {
 
         if ctx.remaining_accounts.len() > 0 {
             let treasury_mint_info = &ctx.remaining_accounts[0];
-            let _treasury_mint: spl_token::state::Mint = assert_initialized(&treasury_mint_info)?;
+            let _treasury_mint: safe_token::state::Mint = assert_initialized(&treasury_mint_info)?;
 
-            assert_owned_by(&treasury_mint_info, &spl_token::id())?;
+            assert_owned_by(&treasury_mint_info, &safe_token::id())?;
 
             fair_launch.treasury_mint = Some(*treasury_mint_info.key);
 
@@ -328,7 +328,7 @@ pub mod fair_launch {
 
         if let Some(treasury_mint) = fair_launch.treasury_mint {
             let treasury_mint_info = &ctx.remaining_accounts[0];
-            let _treasury_mint: spl_token::state::Mint = assert_initialized(&treasury_mint_info)?;
+            let _treasury_mint: safe_token::state::Mint = assert_initialized(&treasury_mint_info)?;
 
             let buyer_token_account_info = &ctx.remaining_accounts[1];
             let buyer_token_account: Account = assert_initialized(&buyer_token_account_info)?;
@@ -337,7 +337,7 @@ pub mod fair_launch {
 
             let token_program = &ctx.remaining_accounts[3];
 
-            if token_program.key != &spl_token::id() {
+            if token_program.key != &safe_token::id() {
                 return Err(ErrorCode::InvalidTokenProgram.into());
             }
 
@@ -535,7 +535,7 @@ pub mod fair_launch {
 
         if let Some(treasury_mint) = fair_launch.treasury_mint {
             let treasury_mint_info = &ctx.remaining_accounts[1];
-            let _treasury_mint: spl_token::state::Mint = assert_initialized(&treasury_mint_info)?;
+            let _treasury_mint: safe_token::state::Mint = assert_initialized(&treasury_mint_info)?;
 
             let buyer_token_account_info = &ctx.remaining_accounts[2];
             let buyer_token_account: Account = assert_initialized(&buyer_token_account_info)?;
@@ -544,7 +544,7 @@ pub mod fair_launch {
 
             let token_program = &ctx.remaining_accounts[4];
 
-            if token_program.key != &spl_token::id() {
+            if token_program.key != &safe_token::id() {
                 return Err(ErrorCode::InvalidTokenProgram.into());
             }
 
@@ -768,7 +768,7 @@ pub mod fair_launch {
             return Err(ErrorCode::CannotCashOutUntilPhaseThree.into());
         }
 
-        let mint: spl_token::state::Mint = assert_initialized(token_mint)?;
+        let mint: safe_token::state::Mint = assert_initialized(token_mint)?;
         let tokens = mint.supply;
 
         let signer_seeds = [
@@ -779,7 +779,7 @@ pub mod fair_launch {
 
         if let Some(treasury_mint) = fair_launch.treasury_mint {
             let treasury_mint_info = &ctx.remaining_accounts[0];
-            let _treasury_mint: spl_token::state::Mint = assert_initialized(&treasury_mint_info)?;
+            let _treasury_mint: safe_token::state::Mint = assert_initialized(&treasury_mint_info)?;
 
             let authority_token_account_info = &ctx.remaining_accounts[1];
             let authority_token_account: Account =
@@ -788,7 +788,7 @@ pub mod fair_launch {
 
             let token_program = &ctx.remaining_accounts[2];
 
-            if token_program.key != &spl_token::id() {
+            if token_program.key != &safe_token::id() {
                 return Err(ErrorCode::InvalidTokenProgram.into());
             }
 
@@ -919,7 +919,7 @@ pub mod fair_launch {
 
         if let Some(treasury_mint) = fair_launch.treasury_mint {
             let treasury_mint_info = &ctx.remaining_accounts[0];
-            let _treasury_mint: spl_token::state::Mint = assert_initialized(&treasury_mint_info)?;
+            let _treasury_mint: safe_token::state::Mint = assert_initialized(&treasury_mint_info)?;
 
             let buyer_payment_account_info = &ctx.remaining_accounts[1];
             let buyer_payment_account: Account = assert_initialized(&buyer_payment_account_info)?;
@@ -1143,7 +1143,7 @@ pub mod fair_launch {
 
         let token_program = &ctx.accounts.token_program;
 
-        if token_program.key != &spl_token::id() {
+        if token_program.key != &safe_token::id() {
             return Err(ErrorCode::InvalidTokenProgram.into());
         }
 
@@ -1180,7 +1180,7 @@ pub mod fair_launch {
                 });
             }
         }
-        assert_owned_by(&participation_mint_info, &spl_token::id())?;
+        assert_owned_by(&participation_mint_info, &safe_token::id())?;
 
         assert_derivation(
             &ctx.program_id,
@@ -1333,7 +1333,7 @@ pub mod fair_launch {
 
         let token_program = &ctx.accounts.token_program;
 
-        if token_program.key != &spl_token::id() {
+        if token_program.key != &safe_token::id() {
             return Err(ErrorCode::InvalidTokenProgram.into());
         }
 
@@ -1404,7 +1404,7 @@ pub mod fair_launch {
 
         let token_program = &ctx.accounts.token_program;
 
-        if token_program.key != &spl_token::id() {
+        if token_program.key != &safe_token::id() {
             return Err(ErrorCode::InvalidTokenProgram.into());
         }
 
@@ -1530,7 +1530,7 @@ pub mod fair_launch {
         let authority = &mut ctx.accounts.authority;
         let token_program = &ctx.accounts.token_program;
 
-        if token_program.key != &spl_token::id() {
+        if token_program.key != &safe_token::id() {
             return Err(ErrorCode::InvalidTokenProgram.into());
         }
         if token_account.mint != fair_launch.token_mint {
@@ -1609,7 +1609,7 @@ pub struct InitializeFairLaunch<'info> {
     authority: AccountInfo<'info>,
     #[account(mut, signer)]
     payer: AccountInfo<'info>,
-    #[account(address = spl_token::id())]
+    #[account(address = safe_token::id())]
     token_program: AccountInfo<'info>,
     #[account(address = system_program::ID)]
     system_program: AccountInfo<'info>,
@@ -1759,7 +1759,7 @@ pub struct PunchTicket<'info> {
     buyer_token_account: AccountInfo<'info>,
     #[account(mut, seeds=[PREFIX.as_bytes(), fair_launch.authority.as_ref(), MINT.as_bytes(), fair_launch.data.uuid.as_bytes()], bump=fair_launch.token_mint_bump)]
     token_mint: AccountInfo<'info>,
-    #[account(address = spl_token::id())]
+    #[account(address = safe_token::id())]
     token_program: AccountInfo<'info>,
 }
 
@@ -1795,7 +1795,7 @@ pub struct ReceiveRefund<'info> {
     transfer_authority: AccountInfo<'info>,
     #[account(mut, seeds=[PREFIX.as_bytes(), fair_launch.authority.as_ref(), MINT.as_bytes(), fair_launch.data.uuid.as_bytes()], bump=fair_launch.token_mint_bump)]
     token_mint: AccountInfo<'info>,
-    #[account(address = spl_token::id())]
+    #[account(address = safe_token::id())]
     token_program: AccountInfo<'info>,
     #[account(address = system_program::ID)]
     system_program: AccountInfo<'info>,
@@ -1821,7 +1821,7 @@ pub struct SetTokenMetadata<'info> {
     token_mint: AccountInfo<'info>,
     #[account(address = metaplex_token_metadata::id())]
     token_metadata_program: AccountInfo<'info>,
-    #[account(address = spl_token::id())]
+    #[account(address = safe_token::id())]
     token_program: AccountInfo<'info>,
     #[account(address = system_program::ID)]
     system_program: AccountInfo<'info>,
@@ -1850,7 +1850,7 @@ pub struct SetParticipationNFT<'info> {
     master_edition: AccountInfo<'info>,
     #[account(address = metaplex_token_metadata::id())]
     token_metadata_program: AccountInfo<'info>,
-    #[account(address = spl_token::id())]
+    #[account(address = safe_token::id())]
     token_program: AccountInfo<'info>,
     #[account(address = system_program::ID)]
     system_program: AccountInfo<'info>,
@@ -1870,7 +1870,7 @@ pub struct UpdateParticipationNFT<'info> {
     metadata: AccountInfo<'info>,
     #[account(address = metaplex_token_metadata::id())]
     token_metadata_program: AccountInfo<'info>,
-    #[account(address = spl_token::id())]
+    #[account(address = safe_token::id())]
     token_program: AccountInfo<'info>,
 }
 
@@ -1908,7 +1908,7 @@ pub struct MintParticipationNFT<'info> {
     edition_mark_pda: AccountInfo<'info>,
     #[account(address = metaplex_token_metadata::id())]
     token_metadata_program: AccountInfo<'info>,
-    #[account(address = spl_token::id())]
+    #[account(address = safe_token::id())]
     token_program: AccountInfo<'info>,
     #[account(address = system_program::ID)]
     system_program: AccountInfo<'info>,
@@ -1923,7 +1923,7 @@ pub struct MintTokens<'info> {
     authority: AccountInfo<'info>,
     #[account(mut)]
     token_account: CpiAccount<'info, TokenAccount>,
-    #[account(address = spl_token::id())]
+    #[account(address = safe_token::id())]
     token_program: AccountInfo<'info>,
     #[account(mut, seeds=[PREFIX.as_bytes(), fair_launch.authority.as_ref(), MINT.as_bytes(), fair_launch.data.uuid.as_bytes()], bump=fair_launch.token_mint_bump)]
     token_mint: CpiAccount<'info, Mint>,

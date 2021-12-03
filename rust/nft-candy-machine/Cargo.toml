@@ -15,10 +15,14 @@ cpi = [ "no-entrypoint" ]
 default = [ ]
 
 [dependencies]
-anchor-lang = "0.17.0"
 arrayref = "0.3.6"
-anchor-spl = "0.17.0"
 
+  [dependencies.anchor-lang]
+  path = "../../../bh-anchor/lang"
+  
+  [dependencies.anchor-spl]
+  path = "../../../bh-anchor/spl"
+  
   [dependencies.metaplex-token-metadata]
   path = "../token-metadata/program"
   features = [ "no-entrypoint" ]

@@ -25,7 +25,7 @@ use {
         system_instruction,
         sysvar::{clock::Clock, Sysvar},
     },
-    spl_token::state::Account,
+    safe_token::state::Account,
 };
 
 #[repr(C)]
@@ -66,9 +66,9 @@ fn parse_accounts<'a, 'b: 'a>(
     };
 
     assert_owned_by(accounts.auction, program_id)?;
-    assert_owned_by(accounts.mint, &spl_token::id())?;
-    assert_owned_by(accounts.destination, &spl_token::id())?;
-    assert_owned_by(accounts.bidder_pot_token, &spl_token::id())?;
+    assert_owned_by(accounts.mint, &safe_token::id())?;
+    assert_owned_by(accounts.destination, &safe_token::id())?;
+    assert_owned_by(accounts.bidder_pot_token, &safe_token::id())?;
     assert_owned_by(accounts.bidder_pot, program_id)?;
     assert_signer(accounts.authority)?;
     assert_token_program_matches_package(accounts.token_program)?;
@@ -77,7 +77,7 @@ fn parse_accounts<'a, 'b: 'a>(
         assert_owned_by(auction_extended, program_id)?;
     }
 
-    if *accounts.token_program.key != spl_token::id() {
+    if *accounts.token_program.key != safe_token::id() {
         return Err(AuctionError::InvalidTokenProgram.into());
     }
 

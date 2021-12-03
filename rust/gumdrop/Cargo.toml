@@ -16,13 +16,16 @@ no-idl = [ ]
 cpi = [ "no-entrypoint" ]
 default = [ ]
 
-[dependencies]
-anchor-lang = "0.17.0"
-anchor-spl = "0.17.0"
+  [dependencies.anchor-lang]
+  path = "../../../bh-anchor/lang"
+  
+  [dependencies.anchor-spl]
+  path = "../../../bh-anchor/spl"
 
-  [dependencies.spl-associated-token-account]
-  version = "1.0.3"
+    [dependencies.safe-associated-token-account]
+  path = "../../../safecoin-program-library/associated-token-account/program"
   features = [ "no-entrypoint" ]
+
 
   [dependencies.metaplex-token-metadata]
   path = "../token-metadata/program"

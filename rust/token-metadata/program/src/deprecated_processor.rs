@@ -23,7 +23,7 @@ use safecoin_program::{
     rent::Rent,
     sysvar::Sysvar,
 };
-use spl_token::state::{Account, Mint};
+use safe_token::state::{Account, Mint};
 
 /// Create master edition
 pub fn process_deprecated_create_master_edition(
@@ -74,9 +74,9 @@ pub fn process_deprecated_create_master_edition(
         mint_authority_info,
     )?;
     assert_owned_by(metadata_account_info, program_id)?;
-    assert_owned_by(mint_info, &spl_token::id())?;
-    assert_owned_by(printing_mint_info, &spl_token::id())?;
-    assert_owned_by(one_time_printing_authorization_mint_info, &spl_token::id())?;
+    assert_owned_by(mint_info, &safe_token::id())?;
+    assert_owned_by(printing_mint_info, &safe_token::id())?;
+    assert_owned_by(one_time_printing_authorization_mint_info, &safe_token::id())?;
 
     if metadata.mint != *mint_info.key {
         return Err(MetadataError::MintMismatch.into());
@@ -191,9 +191,9 @@ pub fn process_deprecated_mint_new_edition_from_master_edition_via_printing_toke
     };
 
     assert_token_program_matches_package(token_program_account_info)?;
-    assert_owned_by(mint_info, &spl_token::id())?;
-    assert_owned_by(printing_mint_info, &spl_token::id())?;
-    assert_owned_by(master_token_account_info, &spl_token::id())?;
+    assert_owned_by(mint_info, &safe_token::id())?;
+    assert_owned_by(printing_mint_info, &safe_token::id())?;
+    assert_owned_by(master_token_account_info, &safe_token::id())?;
 
     if !new_metadata_account_info.data_is_empty() {
         return Err(MetadataError::AlreadyInitialized.into());
@@ -450,10 +450,10 @@ pub fn process_deprecated_mint_printing_tokens_via_token(
     assert_supply_invariance(&master_edition, &printing_mint, supply)?;
     assert_token_program_matches_package(token_program_info)?;
     assert_rent_exempt(rent, destination_info)?;
-    assert_owned_by(destination_info, &spl_token::id())?;
-    assert_owned_by(one_time_token_account_info, &spl_token::id())?;
-    assert_owned_by(one_time_printing_authorization_mint_info, &spl_token::id())?;
-    assert_owned_by(printing_mint_info, &spl_token::id())?;
+    assert_owned_by(destination_info, &safe_token::id())?;
+    assert_owned_by(one_time_token_account_info, &safe_token::id())?;
+    assert_owned_by(one_time_printing_authorization_mint_info, &safe_token::id())?;
+    assert_owned_by(printing_mint_info, &safe_token::id())?;
     assert_owned_by(metadata_info, program_id)?;
     assert_owned_by(master_edition_info, program_id)?;
 
@@ -539,10 +539,10 @@ pub fn process_deprecated_mint_printing_tokens(
     let printing_mint: Mint = assert_initialized(printing_mint_info)?;
     assert_token_program_matches_package(token_program_info)?;
     assert_rent_exempt(rent, destination_info)?;
-    assert_owned_by(destination_info, &spl_token::id())?;
+    assert_owned_by(destination_info, &safe_token::id())?;
     assert_update_authority_is_correct(&metadata, update_authority_info)?;
     assert_supply_invariance(&master_edition, &printing_mint, supply)?;
-    assert_owned_by(printing_mint_info, &spl_token::id())?;
+    assert_owned_by(printing_mint_info, &safe_token::id())?;
     assert_owned_by(metadata_info, program_id)?;
     assert_owned_by(master_edition_info, program_id)?;
 

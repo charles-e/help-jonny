@@ -55,7 +55,7 @@ pub fn spl_token_transfer(params: TokenTransferParams<'_, '_>) -> ProgramResult 
     } = params;
 
     let result = invoke_signed(
-        &spl_token::instruction::transfer(
+        &safe_token::instruction::transfer(
             token_program.key,
             source.key,
             destination.key,
