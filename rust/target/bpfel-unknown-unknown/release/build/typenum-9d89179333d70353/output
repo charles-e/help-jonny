@@ -1,2 +1,0 @@
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/jon/Desktop/metaplex-JW/rust/target/bpfel-unknown-unknown/release/build/typenum-9d89179333d70353/out/consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=/home/jon/Desktop/metaplex-JW/rust/target/bpfel-unknown-unknown/release/build/typenum-9d89179333d70353/out/op.rs
