@@ -1,0 +1,12 @@
+/home/jon/Desktop/metaplex/rust/target/bpfel-unknown-unknown/release/deps/spl_token-17e54a9def8f031f.so: /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/lib.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/error.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/instruction.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/native_mint.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/processor.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/state.rs
+
+/home/jon/Desktop/metaplex/rust/target/bpfel-unknown-unknown/release/deps/libspl_token-17e54a9def8f031f.rlib: /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/lib.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/error.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/instruction.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/native_mint.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/processor.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/state.rs
+
+/home/jon/Desktop/metaplex/rust/target/bpfel-unknown-unknown/release/deps/spl_token-17e54a9def8f031f.d: /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/lib.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/error.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/instruction.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/native_mint.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/processor.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/state.rs
+
+/home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/lib.rs:
+/home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/error.rs:
+/home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/instruction.rs:
+/home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/native_mint.rs:
+/home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/processor.rs:
+/home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/spl-token-3.2.0/src/state.rs:

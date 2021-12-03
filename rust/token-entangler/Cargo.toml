@@ -1,0 +1,31 @@
+[package]
+name = "metaplex-token-entangler"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+crate-type = [ "cdylib", "lib" ]
+name = "metaplex_token_entangler"
+
+[features]
+no-entrypoint = [ ]
+no-idl = [ ]
+cpi = [ "no-entrypoint" ]
+default = [ ]
+
+[dependencies]
+anchor-lang = "0.17.0"
+anchor-spl = "0.17.0"
+thiserror = "1.0"
+
+  [dependencies.spl-associated-token-account]
+  version = "1.0.3"
+  features = [ "no-entrypoint" ]
+
+  [dependencies.metaplex-token-metadata]
+  version = "0.0.1"
+  features = [ "no-entrypoint" ]
+
+  [dependencies.safe-token]
+  features = [ "no-entrypoint" ]
+  path = "../../../safecoin-program-library/token/program"

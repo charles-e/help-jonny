@@ -1,0 +1,10 @@
+/home/jon/Desktop/metaplex/rust/target/release/deps/borsh_schema_derive_internal-1fb2acc4334649ff.rmeta: /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/lib.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/helpers.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/enum_schema.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/struct_schema.rs
+
+/home/jon/Desktop/metaplex/rust/target/release/deps/libborsh_schema_derive_internal-1fb2acc4334649ff.rlib: /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/lib.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/helpers.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/enum_schema.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/struct_schema.rs
+
+/home/jon/Desktop/metaplex/rust/target/release/deps/borsh_schema_derive_internal-1fb2acc4334649ff.d: /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/lib.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/helpers.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/enum_schema.rs /home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/struct_schema.rs
+
+/home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/lib.rs:
+/home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/helpers.rs:
+/home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/enum_schema.rs:
+/home/jon/.cargo/registry/src/github.com-1ecc6299db9ec823/borsh-schema-derive-internal-0.9.1/src/struct_schema.rs:
