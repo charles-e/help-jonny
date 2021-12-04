@@ -1,17 +1,20 @@
 use {
     crate::{ErrorCode, FairLaunch, FairLaunchData, MAX_GRANULARITY},
-    anchor_lang::{
-        prelude::{
-            msg, AccountInfo, ProgramAccount, ProgramError, ProgramResult, Pubkey, Rent,
-            safecoinSysvar,
-        },
-        safecoin_program::{
-            program::{invoke, invoke_signed},
-            program_pack::{IsInitialized, Pack},
-            system_instruction,
-        },
-    },
+    anchor_lang::
+        prelude::{msg,ProgramAccount,},
     std::convert::TryInto,
+};
+use safecoin_program::{
+    account_info::{AccountInfo},
+    program::{invoke, invoke_signed},
+    program_pack::{IsInitialized, Pack},
+    system_instruction,
+    rent::Rent,
+    pubkey::Pubkey,
+    program_error::ProgramError,
+    entrypoint::ProgramResult,
+    sysvar::Sysvar,
+
 };
 
 pub fn assert_initialized<T: Pack + IsInitialized>(

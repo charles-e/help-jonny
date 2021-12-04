@@ -34,3 +34,8 @@ arrayref = "0.3.6"
   [dependencies.safe-token]
   features = [ "no-entrypoint" ]
   path = "../../../safecoin-program-library/token/program"
+
+ [dependencies.safecoin-program]
+  path = "../../../Safecoin/sdk/program"
+  version = "^1.7.17"
+

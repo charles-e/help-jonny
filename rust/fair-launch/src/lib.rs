@@ -364,7 +364,7 @@ pub mod fair_launch {
 
             // assert is an ATA
             assert_derivation(
-                &spl_associated_token_account::id(),
+                &safe_associated_token_account::id(),
                 buyer_token_account_info,
                 &[
                     buyer.key.as_ref(),
@@ -561,7 +561,7 @@ pub mod fair_launch {
 
             // assert is an ATA
             assert_derivation(
-                &spl_associated_token_account::id(),
+                &safe_associated_token_account::id(),
                 buyer_token_account_info,
                 &[
                     buyer.key.as_ref(),
@@ -704,7 +704,7 @@ pub mod fair_launch {
         // assert is an ATA owned by the buyer on the fair launch ticket, has no delegates, is a token account,
         // etc Since this is a permissionless endpoint (for cranks)
         assert_derivation(
-            &spl_associated_token_account::id(),
+            &safe_associated_token_account::id(),
             buyer_token_account_info,
             &[
                 fair_launch_ticket.buyer.as_ref(),
@@ -806,7 +806,7 @@ pub mod fair_launch {
 
             // assert is an ATA
             assert_derivation(
-                &spl_associated_token_account::id(),
+                &safe_associated_token_account::id(),
                 authority_token_account_info,
                 &[
                     authority.key.as_ref(),
@@ -939,7 +939,7 @@ pub mod fair_launch {
 
             // assert is an ATA
             assert_derivation(
-                &spl_associated_token_account::id(),
+                &safe_associated_token_account::id(),
                 buyer_payment_account_info,
                 &[
                     buyer.key.as_ref(),
@@ -1454,7 +1454,7 @@ pub mod fair_launch {
 
         // assert is an ATA
         assert_derivation(
-            &spl_associated_token_account::id(),
+            &safe_associated_token_account::id(),
             buyer_nft_token_account_info,
             &[
                 buyer.key.as_ref(),
@@ -1548,7 +1548,7 @@ pub mod fair_launch {
 
         // assert is an ATA
         assert_derivation(
-            &spl_associated_token_account::id(),
+            &safe_associated_token_account::id(),
             token_account_info,
             &[
                 authority.key.as_ref(),
